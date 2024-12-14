@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 /* Imports */
 import * as am5 from "@amcharts/amcharts5";
-import am5xy from "@amcharts/amcharts5/xy";
-import am5stock from "@amcharts/amcharts5/stock";
+import * as am5xy from "@amcharts/amcharts5/xy";
+import * as am5stock from "@amcharts/amcharts5/stock";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
 const StockChartSimple = () => {
   useEffect(() => {
     const root = am5.Root.new("chartdiv");
-
+    root._logo.dispose();
     const myTheme = am5.Theme.new(root);
 
     myTheme.rule("Grid", ["scrollbar", "minor"]).setAll({
@@ -19,7 +19,6 @@ const StockChartSimple = () => {
 
     // Create a stock chart
     // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/stock/#Instantiating_the_chart
     const stockChart = root.container.children.push(
       am5stock.StockChart.new(root, {
         paddingRight: 0,
@@ -27,13 +26,9 @@ const StockChartSimple = () => {
     );
 
     // Set global number format
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/concepts/formatters/formatting-numbers/
     root.numberFormatter.set("numberFormat", "#,###.00");
 
     // Create a main stock panel (chart)
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/stock/#Adding_panels
     const mainPanel = stockChart.panels.push(
       am5stock.StockPanel.new(root, {
         wheelY: "zoomX",
@@ -43,8 +38,6 @@ const StockChartSimple = () => {
     );
 
     // Create value axis
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
     const valueAxis = mainPanel.yAxes.push(
       am5xy.ValueAxis.new(root, {
         renderer: am5xy.AxisRendererY.new(root, {
@@ -71,8 +64,6 @@ const StockChartSimple = () => {
     );
 
     // Add series
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     const valueSeries = mainPanel.series.push(
       am5xy.CandlestickSeries.new(root, {
         name: "MSFT",
@@ -92,13 +83,9 @@ const StockChartSimple = () => {
     );
 
     // Set main value series
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/stock/#Setting_main_series
     stockChart.set("stockSeries", valueSeries);
 
     // Add a stock legend
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/stock/stock-legend/
     const valueLegend = mainPanel.plotContainer.children.push(
       am5stock.StockLegend.new(root, {
         stockChart: stockChart,
@@ -106,8 +93,6 @@ const StockChartSimple = () => {
     );
 
     // Create volume axis
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
     const volumeAxisRenderer = am5xy.AxisRendererY.new(root, {
       inside: true,
     });
@@ -126,7 +111,6 @@ const StockChartSimple = () => {
     );
 
     // Add series
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     const volumeSeries = mainPanel.series.push(
       am5xy.ColumnSeries.new(root, {
         name: "Volume",
@@ -154,14 +138,10 @@ const StockChartSimple = () => {
     });
 
     // Set main series
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/stock/#Setting_main_series
     stockChart.set("volumeSeries", volumeSeries);
     valueLegend.data.setAll([valueSeries, volumeSeries]);
 
     // Add cursor(s)
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
     mainPanel.set(
       "cursor",
       am5xy.XYCursor.new(root, {
@@ -173,88 +153,74 @@ const StockChartSimple = () => {
     );
 
     // Add scrollbar
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-    const scrollbar = mainPanel.set(
-      "scrollbarX",
-      am5xy.XYChartScrollbar.new(root, {
-        orientation: "horizontal",
-        height: 50,
-      })
-    );
-    stockChart.toolsContainer.children.push(scrollbar);
+    // const scrollbar = mainPanel.set(
+    //   "scrollbarX",
+    //   am5xy.XYChartScrollbar.new(root, {
+    //     orientation: "horizontal",
+    //     height: 50,
+    //   })
+    // );
+    // stockChart.toolsContainer.children.push(scrollbar);
 
-    const sbDateAxis = scrollbar.chart.xAxes.push(
-      am5xy.GaplessDateAxis.new(root, {
-        baseInterval: {
-          timeUnit: "day",
-          count: 1,
-        },
-        renderer: am5xy.AxisRendererX.new(root, {
-          minorGridEnabled: true,
-        }),
-      })
-    );
+    // const sbDateAxis = scrollbar.chart.xAxes.push(
+    //   am5xy.GaplessDateAxis.new(root, {
+    //     baseInterval: {
+    //       timeUnit: "day",
+    //       count: 1,
+    //     },
+    //     renderer: am5xy.AxisRendererX.new(root, {
+    //       minorGridEnabled: true,
+    //     }),
+    //   })
+    // );
 
-    const sbValueAxis = scrollbar.chart.yAxes.push(
-      am5xy.ValueAxis.new(root, {
-        renderer: am5xy.AxisRendererY.new(root, {}),
-      })
-    );
+    // const sbValueAxis = scrollbar.chart.yAxes.push(
+    //   am5xy.ValueAxis.new(root, {
+    //     renderer: am5xy.AxisRendererY.new(root, {}),
+    //   })
+    // );
 
-    const sbSeries = scrollbar.chart.series.push(
-      am5xy.LineSeries.new(root, {
-        valueYField: "Close",
-        valueXField: "Date",
-        xAxis: sbDateAxis,
-        yAxis: sbValueAxis,
-      })
-    );
+    // const sbSeries = scrollbar.chart.series.push(
+    //   am5xy.LineSeries.new(root, {
+    //     valueYField: "Close",
+    //     valueXField: "Date",
+    //     xAxis: sbDateAxis,
+    //     yAxis: sbValueAxis,
+    //   })
+    // );
 
-    sbSeries.fills.template.setAll({
-      visible: true,
-      fillOpacity: 0.3,
-    });
+    // sbSeries.fills.template.setAll({
+    //   visible: true,
+    //   fillOpacity: 0.3,
+    // });
 
-    // Add Volume Profile indicator
-    const volumeProfile = stockChart.indicators.push(
-      am5stock.VolumeProfile.new(root, {
-        stockChart: stockChart,
-        stockSeries: valueSeries,
-        volumeSeries: volumeSeries,
-        legend: valueLegend,
-      })
-    );
+    // // Stock toolbar
+    // const toolbar = am5stock.StockToolbar.new(root, {
+    //   container: document.getElementById("chartcontrols"),
+    //   stockChart: stockChart,
+    //   controls: [
+    //     am5stock.IndicatorControl.new(root, {
+    //       stockChart: stockChart,
+    //       legend: valueLegend,
+    //     }),
+    //     am5stock.DateRangeSelector.new(root, {
+    //       stockChart: stockChart,
+    //     }),
+    //     am5stock.PeriodSelector.new(root, {
+    //       stockChart: stockChart,
+    //     }),
 
-    // Stock toolbar
-    // -------------------------------------------------------------------------------
-    // https://www.amcharts.com/docs/v5/charts/stock/toolbar/
-    const toolbar = am5stock.StockToolbar.new(root, {
-      container: document.getElementById("chartcontrols"),
-      stockChart: stockChart,
-      controls: [
-        am5stock.IndicatorControl.new(root, {
-          stockChart: stockChart,
-          legend: valueLegend,
-        }),
-        am5stock.DateRangeSelector.new(root, {
-          stockChart: stockChart,
-        }),
-        am5stock.PeriodSelector.new(root, {
-          stockChart: stockChart,
-        }),
-
-        am5stock.DrawingControl.new(root, {
-          stockChart: stockChart,
-        }),
-        am5stock.ResetControl.new(root, {
-          stockChart: stockChart,
-        }),
-        am5stock.SettingsControl.new(root, {
-          stockChart: stockChart,
-        }),
-      ],
-    });
+    //     am5stock.DrawingControl.new(root, {
+    //       stockChart: stockChart,
+    //     }),
+    //     am5stock.ResetControl.new(root, {
+    //       stockChart: stockChart,
+    //     }),
+    //     am5stock.SettingsControl.new(root, {
+    //       stockChart: stockChart,
+    //     }),
+    //   ],
+    // });
 
     // data
     const data = [
@@ -2279,10 +2245,22 @@ const StockChartSimple = () => {
     // set data to all series
     valueSeries.data.setAll(data);
     volumeSeries.data.setAll(data);
-    sbSeries.data.setAll(data);
+    // sbSeries.data.setAll(data);
+
+    return () => {
+      root.dispose();
+    };
   }, []);
 
-  return <div className="w-full h-full border" id="chartdiv"></div>;
+  return (
+    <>
+      <div
+        style={{ width: "100%", height: "500px", backgroundColor: "#fff" }}
+        id="chartdiv"
+      ></div>
+      <div id="chartcontrols"></div>
+    </>
+  );
 };
 
 export default StockChartSimple;
