@@ -2,18 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
 //components
-import { Dropdown } from "primereact/dropdown";
-import { InputText } from "primereact/inputtext";
-import { Accordion, AccordionTab } from "primereact/accordion";
-import { Button } from "primereact/button";
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
-import { Tree } from "primereact/tree";
-import { TreeNode } from "primereact/treenode";
-
-// import ViewerContainer from "@/components/viewer/ViewerContainer";
+import StockChartSimple from "@/app/components/chart/StockChartSimple";
 
 export default function Home() {
   //패널
@@ -47,7 +37,7 @@ export default function Home() {
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         style={{ width: "100%", height: "100%" }}
       >
-        {/* <ViewerContainer /> */}
+        <StockChartSimple />
       </div>
     </div>
   );

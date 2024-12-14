@@ -15,7 +15,7 @@ body {
   height: 100vh;
   font-family: "Pretendard", sans-serif;
   font-weight: 400;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #030f0b;
 }
 
