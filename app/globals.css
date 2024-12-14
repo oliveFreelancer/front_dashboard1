@@ -6,20 +6,30 @@
 @import "primereact/resources/primereact.min.css"; /* PrimeReact 기본 스타일 */
 @import "primeicons/primeicons.css"; /* PrimeIcons 스타일 */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 400;
+  overflow: hidden;
+  background-color: #030f0b;
+}
+
+p,
+h1,
+h2,
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }

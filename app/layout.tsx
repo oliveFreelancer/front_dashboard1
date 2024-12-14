@@ -4,6 +4,8 @@ import "./globals.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; // PrimeReact 테마
 import "primereact/resources/primereact.min.css"; // PrimeReact 기본 스타일
 import "primeicons/primeicons.css"; // PrimeIcons 스타일
+//components
+import Header from "@/app/components/header/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="kr">
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
