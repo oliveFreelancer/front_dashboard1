@@ -25,18 +25,16 @@ const Header = () => {
     },
   ];
 
-  const start = <img alt="logo" src="" height="40" className="mr-2"></img>;
-  const end = (
-    <div className="flex align-items-center gap-2">
-      <Image
-        src="/assets/images/ds.png" // 이미지 파일 경로
-        alt="로고" // 이미지 설명
-        width={500} // 이미지 너비 (픽셀 단위)
-        height={1} // 이미지 높이 (픽셀 단위)
-        layout="responsive"
-      />
-    </div>
+  const start = (
+    <Image
+      src="/assets/images/ds.png" // 이미지 파일 경로
+      alt="로고" // 이미지 설명
+      width={46} // 이미지 너비 (픽셀 단위)
+      height={18} // 이미지 높이 (픽셀 단위)
+      layout="responsive"
+    />
   );
+  const end = <div className="flex align-items-center gap-2">ddd</div>;
 
   return <Menubar model={items} start={start} end={end} />;
 };

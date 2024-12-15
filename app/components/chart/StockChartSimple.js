@@ -2255,10 +2255,14 @@ const StockChartSimple = () => {
   return (
     <>
       <div
-        style={{ width: "100%", height: "500px", backgroundColor: "#fff" }}
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#000302",
+          color: "#fff",
+        }}
         id="chartdiv"
       ></div>
-      <div id="chartcontrols"></div>
     </>
   );
 };

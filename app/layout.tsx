@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body>
-        <Header />
+        {/* <Header /> */}
         {children}
       </body>
     </html>
