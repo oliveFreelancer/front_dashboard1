@@ -4,8 +4,26 @@ import React from "react";
 import Image from "next/image";
 //components
 import { Menubar } from "primereact/menubar";
+import { Button } from "primereact/button";
 
 const Header = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval); // 컴포넌트가 언마운트될 때 interval을 클리어
+  }, []);
+
+  const formattedTime = new Intl.DateTimeFormat("ko-KR", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false, // 24시간 형식
+  }).format(time);
+
   const items = [
     {
       label: "Home",
@@ -33,10 +51,19 @@ const Header = () => {
       alt="로고" // 이미지 설명
       width={46} // 이미지 너비 (픽셀 단위)
       height={18} // 이미지 높이 (픽셀 단위)
-      layout="responsive"
     />
   );
-  const end = <div className="flex align-items-center gap-2">ddd</div>;
+  const end = (
+    <div className="flex items-center gap-2">
+      <p>현재 시각 : {formattedTime}</p>
+      <p>관리자</p>
+      <Button
+        label="Submit"
+        icon="pi pi-check"
+        className="px-3 py-1 bg-emerald-900 rounded-full border border-teal-700"
+      />
+    </div>
+  );
 
   return (
     <Menubar
@@ -52,6 +79,8 @@ const Header = () => {
             left: "0",
             right: "0",
             borderRadius: "0",
+            backgroundColor: "#041c19",
+            color: "#fff",
           },
         },
       }}

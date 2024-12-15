@@ -62,16 +62,15 @@ export default function Home() {
     <div className="main relative h-full">
       {/* 패널 */}
       <div
-        className={`absolute top-4 left-[22px] flex items-center w-[500px] z-50 transition-transform ${
+        className={`absolute top-[70px] left-[22px] flex items-center w-[500px] z-50 transition-transform ${
           isFirstPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-white rounded-lg">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-teal-950 rounded-lg">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
               className="mr-2"
-              size="large"
               style={{ backgroundColor: "#091a14", color: "#ffffff" }}
               shape="circle"
             />
@@ -138,16 +137,15 @@ export default function Home() {
       </div>
       {/* 패널 */}
       <div
-        className={`absolute top-96 left-[22px] flex items-center w-[500px] z-50 transition-transform ${
+        className={`absolute top-[430px] left-[22px] flex items-center w-[500px] z-50 transition-transform ${
           isSecondPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-white rounded-lg">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-teal-950 rounded-lg">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
               className="mr-2"
-              size="large"
               style={{ backgroundColor: "#091a14", color: "#ffffff" }}
               shape="circle"
             />

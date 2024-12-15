@@ -42,7 +42,7 @@ ol {
 }
 
 .overflow-y-auto::-webkit-scrollbar-thumb {
-  background-color: #4c5580;
+  background-color: #041c19;
   background-clip: padding-box;
   border: 1px solid transparent;
   border-radius: 200px;
@@ -55,7 +55,11 @@ ol {
 
 /* neumorphism custom style*/
 .neumorphism-1 {
-  background: linear-gradient(145deg, #f8f8f8, #b6baba, 0.8);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(228, 255, 253, 0.8)
+  );
   box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8),
     -5px -5px 14px rgba(32, 162, 149, 0.3);
   /* WebKit (Safari, Chrome, Opera) */
