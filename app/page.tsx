@@ -9,12 +9,15 @@ import { Button } from "primereact/button";
 import { ProgressBar } from "primereact/progressbar";
 import { Dropdown } from "primereact/dropdown";
 import { Tree } from "primereact/tree";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
 import StockChartSimple from "@/app/components/chart/StockChartSimple";
 
 export default function Home() {
   //패널
   const [isFirstPanelOpen, setIsFirstPanelOpen] = useState(true);
   const [isSecondPanelOpen, setIsSecondPanelOpen] = useState(true);
+  const [isThirdPanelOpen, setIsThirdPanelOpen] = useState(true);
 
   //패널 토글 버튼
   const toggleFirstPanelOpen = () => {
@@ -22,6 +25,9 @@ export default function Home() {
   };
   const toggleSecondPanelOpen = () => {
     setIsSecondPanelOpen(!isSecondPanelOpen);
+  };
+  const toggleThirdPanelOpen = () => {
+    setIsThirdPanelOpen(!isThirdPanelOpen);
   };
 
   const [selectedCity, setSelectedCity] = useState(null);
@@ -55,6 +61,37 @@ export default function Home() {
           ],
         },
       ],
+    },
+  ];
+
+  const tableData = [
+    {
+      id: "id-12-gh-391",
+      name: "대기",
+      price: 650000,
+      category: "리소스 관리",
+      date: "2025-04-12",
+    },
+    {
+      id: "id-45-ev-89",
+      name: "응답 완료",
+      price: 1210000,
+      category: "캠페인 성과",
+      date: "2025-04-19",
+    },
+    {
+      id: "id-01-hf-03",
+      name: "응답 완료",
+      price: 98000,
+      category: "스트리밍",
+      date: "2025-04-22",
+    },
+    {
+      id: "id-89-qwe-005",
+      name: "확인 중...",
+      price: 380000,
+      category: "리소스 관리",
+      date: "2025-04-30",
     },
   ];
 
@@ -178,15 +215,15 @@ export default function Home() {
 
       {/* 패널 */}
       <div
-        className={`absolute top-[550px] right-[22px] flex items-center w-[500px] z-50 transition-transform ${
-          isSecondPanelOpen ? "translate-x-0" : "translate-x-[490px]"
+        className={`absolute top-[70px] right-[22px] flex items-center w-[500px] z-50 transition-transform ${
+          isThirdPanelOpen ? "translate-x-0" : "translate-x-[490px]"
         }`}
       >
         <button
           className="flex flex-col justify-center items-center w-[32px] py-2  transition-transform -translate-x-[0]"
-          onClick={toggleSecondPanelOpen}
+          onClick={toggleThirdPanelOpen}
         >
-          <i className="pi pi-sort-up-fill rotate-180 text-white"></i>
+          <i className="pi pi-sort-up-fill rotate-270 text-white"></i>
         </button>
         <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-teal-950 rounded-lg border border-teal-400">
           <div className="flex items-center gap-2">
@@ -201,11 +238,13 @@ export default function Home() {
             </span>
           </div>
           <div className="max-h-[200px] overflow-y-auto">
-            <Tree
-              value={treeData}
-              className="w-full md:w-30rem"
-              pt={{ root: { style: { padding: "0" } } }}
-            />
+            <DataTable value={tableData} tableStyle={{ minWidth: "50rem" }}>
+              <Column field="id" header="처리 인자"></Column>
+              <Column field="name" header="이벤트 이름"></Column>
+              <Column field="price" header="가격"></Column>
+              <Column field="category" header="카테고리"></Column>
+              <Column field="date" header="날짜"></Column>
+            </DataTable>
           </div>
         </div>
       </div>
