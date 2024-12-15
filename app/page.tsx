@@ -74,16 +74,16 @@ export default function Home() {
               shape="circle"
             />
             <p className="font-bold text-lg">주요 중개 현황 실시간</p>
-            <span className="ml-auto text-xs">
+            <span className="ml-auto text-sm">
               Averate Rate Year 132,000 &#8361;
             </span>
           </div>
           <div className="flex flex-col gap-3">
-            <p className="py-3 border-b border-gray-500 font-bold">
+            <p className="py-3 font-bold">
               다양한 데이터를 실시간으로 스트리밍
             </p>
             <div className="flex gap-3">
-              <div className="neumorphism-2 flex-1 p-4 border border-teal-700 rounded-lg">
+              <div className="neumorphism-2 flex-1 p-4 rounded-lg">
                 <div className="flex w-full items-center justify-between">
                   <p>정산 예정 데이터</p>
                   <i className="pi pi-check" style={{ color: "gray" }}></i>
@@ -93,7 +93,7 @@ export default function Home() {
                   <strong>0.022 p%</strong>
                 </div>
               </div>
-              <div className=" neumorphism-2 flex-1 p-4 border border-teal-700 rounded-lg">
+              <div className=" neumorphism-2 flex-1 p-4 rounded-lg">
                 <div className="flex w-full items-center justify-between">
                   <p>이벤트 등급</p>
                   <i className="pi pi-check" style={{ color: "gray" }}></i>
@@ -106,6 +106,9 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-3">
+            <p className="py-3 font-bold">
+              협업 및 진행 상황을 관리하는 대시보드
+            </p>
             <div className="flex items-center justify-between">
               <Dropdown
                 value={selectedCity}
@@ -115,7 +118,7 @@ export default function Home() {
                 placeholder="옵션"
                 className="w-1/3"
               />
-              <span className="text-xs font-bold text-gray-600">
+              <span className="text-sm font-bold text-gray-600">
                 실시간 데이터
               </span>
             </div>
@@ -127,9 +130,8 @@ export default function Home() {
           </div>
           <div>
             <Button
-              label="Submit"
-              icon="pi pi-check"
-              className="p-2 w-full bg-emerald-900 rounded-full border border-teal-700"
+              label="확인하기"
+              className="py-3 w-full bg-emerald-900 rounded-full border border-teal-700 text-white"
             />
           </div>
         </div>
@@ -154,7 +156,7 @@ export default function Home() {
               shape="circle"
             />
             <p className="font-bold text-lg">고객 분포 및 분석</p>
-            <span className="ml-auto text-xs">
+            <span className="ml-auto text-sm">
               Averate Rate Year 550 &#8361;
             </span>
           </div>
