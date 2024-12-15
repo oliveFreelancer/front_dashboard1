@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; // PrimeReact 테마
 import "primereact/resources/primereact.min.css"; // PrimeReact 기본 스타일

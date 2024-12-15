@@ -1,8 +1,8 @@
 "use client";
 /* 대시보드 프론트엔드 퍼블리싱 구축 프리랜서 Olive*/
 // https://blog.naver.com/webdesign_yumeekime
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import React, { useState } from "react";
+// import Image from "next/image";
 //components
 import { Avatar } from "primereact/avatar";
 import { Button } from "primereact/button";
