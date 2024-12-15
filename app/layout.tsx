@@ -20,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body>
-        {/* <Header /> */}
-        {children}
+        <Header />
+        <main className="pt-[56px] w-full h-full">{children}</main>
       </body>
     </html>
   );

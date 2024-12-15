@@ -1,5 +1,6 @@
 "use client";
-
+/* 대시보드 프론트엔드 퍼블리싱 구축 프리랜서 Olive*/
+// https://blog.naver.com/webdesign_yumeekime
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 //components
@@ -7,6 +8,7 @@ import { Avatar } from "primereact/avatar";
 import { Button } from "primereact/button";
 import { ProgressBar } from "primereact/progressbar";
 import { Dropdown } from "primereact/dropdown";
+import { Tree } from "primereact/tree";
 import StockChartSimple from "@/app/components/chart/StockChartSimple";
 
 export default function Home() {
@@ -30,6 +32,32 @@ export default function Home() {
     { name: "급락 거래", code: "IST" },
     { name: "최신 현황", code: "PRS" },
   ];
+
+  const treeData = [
+    {
+      key: "0",
+      label: "Root",
+      children: [
+        {
+          key: "0-0",
+          label: "Documents",
+          children: [
+            { key: "0-0-0", label: "Resume.docx" },
+            { key: "0-0-1", label: "CoverLetter.docx" },
+          ],
+        },
+        {
+          key: "0-1",
+          label: "Pictures",
+          children: [
+            { key: "0-1-0", label: "Vacation.jpg" },
+            { key: "0-1-1", label: "Family.jpg" },
+          ],
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="main relative h-full">
       {/* 패널 */}
@@ -48,6 +76,7 @@ export default function Home() {
               shape="circle"
             />
             <p>주요 중개 현황 실시간</p>
+            <span className="ml-auto">Averate Rate Year 550 &#8361;</span>
           </div>
           <div>
             <p>알림</p>
@@ -113,7 +142,7 @@ export default function Home() {
           isSecondPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className={`p-4 w-full flex-1 text-white bg-emerald-950 `}>
+        <div className="p-4 w-full flex-1 flex flex-col gap-2 text-white bg-emerald-950">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
@@ -123,6 +152,14 @@ export default function Home() {
               shape="circle"
             />
             <p>워크2</p>
+            <span className="ml-auto">Averate Rate Year 550 &#8361;</span>
+          </div>
+          <div className="max-h-[200px] overflow-y-auto">
+            <Tree
+              value={treeData}
+              className="w-full md:w-30rem"
+              pt={{ root: { style: { padding: "0" } } }}
+            />
           </div>
         </div>
         <button

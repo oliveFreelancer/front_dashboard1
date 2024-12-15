@@ -1,3 +1,5 @@
+/* 대시보드 프론트엔드 퍼블리싱 구축 프리랜서 Olive */
+/* https://blog.naver.com/webdesign_yumeekime */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,4 +34,21 @@ ol {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+/* scroll custom */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: #4c5580;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  border-radius: 200px;
+  cursor: default;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background-color: transparent;
 }

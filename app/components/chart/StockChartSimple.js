@@ -1,3 +1,5 @@
+/* 대시보드 프론트엔드 퍼블리싱 구축 프리랜서 Olive*/
+// https://blog.naver.com/webdesign_yumeekime
 import React, { useEffect } from "react";
 /* Imports */
 import * as am5 from "@amcharts/amcharts5";

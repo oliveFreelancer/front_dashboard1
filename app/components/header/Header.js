@@ -1,3 +1,5 @@
+/* 대시보드 프론트엔드 퍼블리싱 구축 프리랜서 Olive*/
+// https://blog.naver.com/webdesign_yumeekime
 import React from "react";
 import Image from "next/image";
 //components
@@ -36,7 +38,25 @@ const Header = () => {
   );
   const end = <div className="flex align-items-center gap-2">ddd</div>;
 
-  return <Menubar model={items} start={start} end={end} />;
+  return (
+    <Menubar
+      model={items}
+      start={start}
+      end={end}
+      className="z-9999"
+      pt={{
+        root: {
+          style: {
+            position: "fixed",
+            top: "0",
+            left: "0",
+            right: "0",
+            borderRadius: "0",
+          },
+        },
+      }}
+    />
+  );
 };
 
 export default Header;
