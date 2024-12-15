@@ -144,7 +144,7 @@ export default function Home() {
       </div>
       {/* 패널 */}
       <div
-        className={`absolute top-[500px] left-[22px] flex items-center w-[500px] z-50 transition-transform ${
+        className={`absolute top-[550px] left-[22px] flex items-center w-[500px] z-50 transition-transform ${
           isSecondPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
@@ -174,6 +174,40 @@ export default function Home() {
         >
           <i className="pi pi-sort-up-fill rotate-90 text-white"></i>
         </button>
+      </div>
+
+      {/* 패널 */}
+      <div
+        className={`absolute top-[550px] right-[22px] flex items-center w-[500px] z-50 transition-transform ${
+          isSecondPanelOpen ? "translate-x-0" : "translate-x-[490px]"
+        }`}
+      >
+        <button
+          className="flex flex-col justify-center items-center w-[32px] py-2  transition-transform -translate-x-[0]"
+          onClick={toggleSecondPanelOpen}
+        >
+          <i className="pi pi-sort-up-fill rotate-180 text-white"></i>
+        </button>
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-teal-950 rounded-lg border border-teal-400">
+          <div className="flex items-center gap-2">
+            <Avatar
+              icon="pi pi-user"
+              style={{ backgroundColor: "#091a14", color: "#ffffff" }}
+              shape="circle"
+            />
+            <p className="font-bold text-lg">고객 분포 및 분석</p>
+            <span className="ml-auto text-sm">
+              Averate Rate Year 550 &#8361;
+            </span>
+          </div>
+          <div className="max-h-[200px] overflow-y-auto">
+            <Tree
+              value={treeData}
+              className="w-full md:w-30rem"
+              pt={{ root: { style: { padding: "0" } } }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* 가운데 */}
