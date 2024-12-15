@@ -1,28 +1,34 @@
 /* 대시보드 프론트엔드 퍼블리싱 구축 프리랜서 Olive*/
 // https://blog.naver.com/webdesign_yumeekime
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 //components
 import { Menubar } from "primereact/menubar";
 import { Button } from "primereact/button";
 
 const Header = () => {
-  const [time, setTime] = useState(new Date());
+  const timeRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+    const updateTime = () => {
+      const currentTime = new Date();
+      const formattedTime = new Intl.DateTimeFormat("ko-KR", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false, // 24시간 형식
+      }).format(currentTime);
 
-    return () => clearInterval(interval); // 컴포넌트가 언마운트될 때 interval을 클리어
+      if (timeRef.current) {
+        timeRef.current.textContent = `현재 시각 : ${formattedTime}`;
+      }
+    };
+
+    updateTime(); // 컴포넌트 마운트 시 최초 시간 설정
+    const interval = setInterval(updateTime, 1000); // 1초마다 시간 갱신
+
+    return () => clearInterval(interval); // 컴포넌트 언마운트 시 interval 클리어
   }, []);
-
-  const formattedTime = new Intl.DateTimeFormat("ko-KR", {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false, // 24시간 형식
-  }).format(time);
 
   const items = [
     {
@@ -47,20 +53,22 @@ const Header = () => {
 
   const start = (
     <Image
-      src="/assets/images/ds.png" // 이미지 파일 경로
+      src="/assets/images/logo.svg" // 이미지 파일 경로
       alt="로고" // 이미지 설명
       width={46} // 이미지 너비 (픽셀 단위)
       height={18} // 이미지 높이 (픽셀 단위)
     />
   );
   const end = (
-    <div className="flex items-center gap-2">
-      <p>현재 시각 : {formattedTime}</p>
-      <p>관리자</p>
+    <div className="flex items-center gap-6">
+      <p ref={timeRef} className="text-xs">
+        현재 시각 :
+      </p>
+      <p className="text-xs font-bold">관리자</p>
       <Button
-        label="Submit"
+        label="로그인"
         icon="pi pi-check"
-        className="px-3 py-1 bg-emerald-900 rounded-full border border-teal-700"
+        className="px-3 py-1 bg-emerald-900 rounded-full border border-teal-700 text-sm"
       />
     </div>
   );
@@ -82,7 +90,10 @@ const Header = () => {
             backgroundColor: "#041c19",
             color: "#fff",
           },
+          className: "border-b border-teal-900",
         },
+        icon: { style: { color: "#134e4a" } },
+        label: { style: { color: "#fff" } },
       }}
     />
   );

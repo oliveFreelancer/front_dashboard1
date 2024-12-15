@@ -66,16 +66,17 @@ export default function Home() {
           isFirstPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-teal-950 rounded-lg">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-teal-950 rounded-lg border border-teal-400">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
-              className="mr-2"
               style={{ backgroundColor: "#091a14", color: "#ffffff" }}
               shape="circle"
             />
-            <p>주요 중개 현황 실시간</p>
-            <span className="ml-auto">Averate Rate Year 550 &#8361;</span>
+            <p className="font-bold text-lg">주요 중개 현황 실시간</p>
+            <span className="ml-auto text-xs">
+              Averate Rate Year 132,000 &#8361;
+            </span>
           </div>
           <div>
             <p>알림</p>
@@ -141,16 +142,17 @@ export default function Home() {
           isSecondPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-teal-950 rounded-lg">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-teal-950 rounded-lg border border-teal-400">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
-              className="mr-2"
               style={{ backgroundColor: "#091a14", color: "#ffffff" }}
               shape="circle"
             />
-            <p>워크2</p>
-            <span className="ml-auto">Averate Rate Year 550 &#8361;</span>
+            <p className="font-bold text-lg">고객 분포 및 분석</p>
+            <span className="ml-auto text-xs">
+              Averate Rate Year 550 &#8361;
+            </span>
           </div>
           <div className="max-h-[200px] overflow-y-auto">
             <Tree
@@ -168,7 +170,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* 가운데 지도 */}
+      {/* 가운데 */}
       <div
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         style={{ width: "100%", height: "100%" }}
