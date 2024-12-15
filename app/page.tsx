@@ -66,8 +66,8 @@ export default function Home() {
           isFirstPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-teal-950 rounded-lg border border-teal-400">
-          <div className="flex items-center gap-2">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-teal-950 rounded-lg border border-teal-400">
+          <div className="flex items-center gap-3">
             <Avatar
               icon="pi pi-user"
               style={{ backgroundColor: "#091a14", color: "#ffffff" }}
@@ -78,23 +78,25 @@ export default function Home() {
               Averate Rate Year 132,000 &#8361;
             </span>
           </div>
-          <div>
-            <p>알림</p>
-            <div className="flex gap-2">
-              <div className="flex-1 p-4 border border-teal-700">
+          <div className="flex flex-col gap-3">
+            <p className="py-3 border-b border-gray-500 font-bold">
+              다양한 데이터를 실시간으로 스트리밍
+            </p>
+            <div className="flex gap-3">
+              <div className="neumorphism-2 flex-1 p-4 border border-teal-700 rounded-lg">
                 <div className="flex w-full items-center justify-between">
-                  <p>title</p>
-                  <i className="pi pi-check" style={{ color: "slateblue" }}></i>
+                  <p>정산 예정 데이터</p>
+                  <i className="pi pi-check" style={{ color: "gray" }}></i>
                 </div>
                 <div className="flex w-full items-center justify-between">
                   <strong>0.39%</strong>
                   <strong>0.022 p%</strong>
                 </div>
               </div>
-              <div className="flex-1 p-4 border border-teal-700">
+              <div className=" neumorphism-2 flex-1 p-4 border border-teal-700 rounded-lg">
                 <div className="flex w-full items-center justify-between">
-                  <p>title</p>
-                  <i className="pi pi-check" style={{ color: "slateblue" }}></i>
+                  <p>이벤트 등급</p>
+                  <i className="pi pi-check" style={{ color: "gray" }}></i>
                 </div>
                 <div className="flex w-full items-center justify-between">
                   <strong>0.39%</strong>
@@ -103,7 +105,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <Dropdown
                 value={selectedCity}
@@ -113,13 +115,15 @@ export default function Home() {
                 placeholder="옵션"
                 className="w-1/3"
               />
-              <span>실시간 데이터</span>
+              <span className="text-xs font-bold text-gray-600">
+                실시간 데이터
+              </span>
             </div>
             <ProgressBar
               mode="indeterminate"
               style={{ height: "3px" }}
             ></ProgressBar>
-            <span>실시간 데이터 : 13:50:54</span>
+            <span>Data for the last 7 Days (단위 : 일자)</span>
           </div>
           <div>
             <Button
@@ -142,7 +146,7 @@ export default function Home() {
           isSecondPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-teal-950 rounded-lg border border-teal-400">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-teal-950 rounded-lg border border-teal-400">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"

@@ -52,12 +52,15 @@ const Header = () => {
   ];
 
   const start = (
-    <Image
-      src="/assets/images/logo.svg" // 이미지 파일 경로
-      alt="로고" // 이미지 설명
-      width={46} // 이미지 너비 (픽셀 단위)
-      height={18} // 이미지 높이 (픽셀 단위)
-    />
+    <div className="flex items-end gap-1 mr-6">
+      <Image
+        src="/assets/images/logo.svg" // 이미지 파일 경로
+        alt="로고" // 이미지 설명
+        width={180} // 이미지 너비 (픽셀 단위)
+        height={1} // 이미지 높이 (픽셀 단위)
+      />
+      <h1 className="font-bold text-lg">데이터 특화 대시보드</h1>
+    </div>
   );
   const end = (
     <div className="flex items-center gap-6">
@@ -68,7 +71,7 @@ const Header = () => {
       <Button
         label="로그인"
         icon="pi pi-check"
-        className="px-3 py-1 bg-emerald-900 rounded-full border border-teal-700 text-sm"
+        className="px-3 py-1 bg-emerald-900 rounded-full border border-teal-700 text-xs"
       />
     </div>
   );

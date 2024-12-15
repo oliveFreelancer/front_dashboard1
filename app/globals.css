@@ -69,3 +69,15 @@ ol {
   -moz-box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8),
     -5px -5px 14px rgba(32, 162, 149, 0.3);
 }
+
+.neumorphism-2 {
+  background: #e0e0e0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(255, 255, 255, 0.6);
+  /* WebKit (Safari, Chrome, Opera) */
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(255, 255, 255, 0.6);
+  /* Firefox */
+  -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(255, 255, 255, 0.6);
+}
