@@ -52,3 +52,16 @@ ol {
 .overflow-y-auto::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+/* neumorphism custom style*/
+.neumorphism-1 {
+  background: linear-gradient(145deg, #f8f8f8, #b6baba, 0.8);
+  box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8),
+    -5px -5px 14px rgba(32, 162, 149, 0.3);
+  /* WebKit (Safari, Chrome, Opera) */
+  -webkit-box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8),
+    -5px -5px 14px rgba(32, 162, 149, 0.3);
+  /* Firefox */
+  -moz-box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8),
+    -5px -5px 14px rgba(32, 162, 149, 0.3);
+}

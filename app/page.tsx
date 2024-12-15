@@ -66,7 +66,7 @@ export default function Home() {
           isFirstPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="p-4 w-full flex-1 flex flex-col gap-2 text-white bg-emerald-950">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-white rounded-lg">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
@@ -142,7 +142,7 @@ export default function Home() {
           isSecondPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="p-4 w-full flex-1 flex flex-col gap-2 text-white bg-emerald-950">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-2 text-white rounded-lg">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
