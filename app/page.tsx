@@ -142,7 +142,7 @@ export default function Home() {
       </div>
       {/* 패널 */}
       <div
-        className={`absolute top-[430px] left-[22px] flex items-center w-[500px] z-50 transition-transform ${
+        className={`absolute top-[450px] left-[22px] flex items-center w-[500px] z-50 transition-transform ${
           isSecondPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
