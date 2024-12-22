@@ -18,6 +18,7 @@ export default function Home() {
   const [isFirstPanelOpen, setIsFirstPanelOpen] = useState(true);
   const [isSecondPanelOpen, setIsSecondPanelOpen] = useState(true);
   const [isThirdPanelOpen, setIsThirdPanelOpen] = useState(true);
+  const [isFourthPanelOpen, setIsFourthPanelOpen] = useState(true);
 
   //패널 토글 버튼
   const toggleFirstPanelOpen = () => {
@@ -28,6 +29,9 @@ export default function Home() {
   };
   const toggleThirdPanelOpen = () => {
     setIsThirdPanelOpen(!isThirdPanelOpen);
+  };
+  const toggleFourthPanelOpen = () => {
+    setIsFourthPanelOpen(!isFourthPanelOpen);
   };
 
   const [selectedCity, setSelectedCity] = useState(null);
@@ -103,7 +107,7 @@ export default function Home() {
           isFirstPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-teal-950 rounded-lg border border-teal-400">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-white rounded-lg border border-teal-400">
           <div className="flex items-center gap-3">
             <Avatar
               icon="pi pi-user"
@@ -111,7 +115,7 @@ export default function Home() {
               shape="circle"
             />
             <p className="font-bold text-lg">주요 중개 현황 실시간</p>
-            <span className="ml-auto text-sm">
+            <span className="ml-auto text-xs font-light text-neutral-400">
               Averate Rate Year 132,000 &#8361;
             </span>
           </div>
@@ -155,15 +159,18 @@ export default function Home() {
                 placeholder="옵션"
                 className="w-1/3"
               />
-              <span className="text-sm font-bold text-gray-600">
+              <span className="text-xs font-light text-neutral-400">
                 실시간 데이터
               </span>
             </div>
             <ProgressBar
               mode="indeterminate"
               style={{ height: "3px" }}
+              pt={{ container: { style: { backgroundColor: "#041c19" } } }}
             ></ProgressBar>
-            <span>Data for the last 7 Days (단위 : 일자)</span>
+            <span className="text-xs font-light text-neutral-400">
+              Data for the last 7 Days (단위 : 일자)
+            </span>
           </div>
           <div>
             <Button
@@ -185,7 +192,7 @@ export default function Home() {
           isSecondPanelOpen ? "translate-x-0" : "-translate-x-[490px]"
         }`}
       >
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-teal-950 rounded-lg border border-teal-400">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-white rounded-lg border border-teal-400">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
@@ -193,7 +200,7 @@ export default function Home() {
               shape="circle"
             />
             <p className="font-bold text-lg">고객 분포 및 분석</p>
-            <span className="ml-auto text-sm">
+            <span className="ml-auto text-xs font-light text-neutral-400">
               Averate Rate Year 550 &#8361;
             </span>
           </div>
@@ -223,16 +230,52 @@ export default function Home() {
           className="flex flex-col justify-center items-center w-[32px] py-2  transition-transform -translate-x-[0]"
           onClick={toggleThirdPanelOpen}
         >
-          <i className="pi pi-sort-up-fill rotate-270 text-white"></i>
+          <i className="pi pi-sort-up-fill -rotate-90 text-white"></i>
         </button>
-        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-teal-950 rounded-lg border border-teal-400">
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-white rounded-lg border border-teal-400">
           <div className="flex items-center gap-2">
             <Avatar
               icon="pi pi-user"
               style={{ backgroundColor: "#091a14", color: "#ffffff" }}
               shape="circle"
             />
-            <p className="font-bold text-lg">고객 분포 및 분석</p>
+            <p className="font-bold text-lg">시드 분포 및 분석</p>
+            <span className="ml-auto text-sm">
+              Averate Rate Year 550 &#8361;
+            </span>
+          </div>
+          <div className="max-h-[200px] overflow-y-auto">
+            <DataTable value={tableData} tableStyle={{ minWidth: "50rem" }}>
+              <Column field="id" header="처리 인자"></Column>
+              <Column field="name" header="이벤트 이름"></Column>
+              <Column field="price" header="가격"></Column>
+              <Column field="category" header="카테고리"></Column>
+              <Column field="date" header="날짜"></Column>
+            </DataTable>
+          </div>
+        </div>
+      </div>
+
+      {/* 패널 */}
+      <div
+        className={`absolute top-[380px] right-[22px] flex items-center w-[500px] z-50 transition-transform ${
+          isFourthPanelOpen ? "translate-x-0" : "translate-x-[490px]"
+        }`}
+      >
+        <button
+          className="flex flex-col justify-center items-center w-[32px] py-2  transition-transform -translate-x-[0]"
+          onClick={toggleFourthPanelOpen}
+        >
+          <i className="pi pi-sort-up-fill -rotate-90 text-white"></i>
+        </button>
+        <div className="neumorphism-1 p-4 w-full flex-1 flex flex-col gap-3 text-white rounded-lg border border-teal-400">
+          <div className="flex items-center gap-2">
+            <Avatar
+              icon="pi pi-user"
+              style={{ backgroundColor: "#091a14", color: "#ffffff" }}
+              shape="circle"
+            />
+            <p className="font-bold text-lg">환율 대비 인덱스</p>
             <span className="ml-auto text-sm">
               Averate Rate Year 550 &#8361;
             </span>
