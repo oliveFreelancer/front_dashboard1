@@ -65,18 +65,23 @@ ol {
     rgba(7, 35, 30, 0.9),
     rgba(0, 14, 12, 0.8)
   );
-  box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8),
-    -5px -5px 14px rgba(32, 162, 149, 0.3);
+  box-shadow: inset 5px 5px 14px rgba(0, 0, 0, 0.8),
+    inset -5px -5px 14px rgba(32, 162, 149, 0.3);
   /* WebKit (Safari, Chrome, Opera) */
-  -webkit-box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8),
-    -5px -5px 14px rgba(32, 162, 149, 0.3);
+  -webkit-box-shadow: inset 5px 5px 14px rgba(0, 0, 0, 0.8),
+    inset -5px -5px 14px rgba(32, 162, 149, 0.3);
   /* Firefox */
-  -moz-box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.8),
-    -5px -5px 14px rgba(32, 162, 149, 0.3);
+  -moz-box-shadow: inset 5px 5px 14px rgba(0, 0, 0, 0.8),
+    inset -5px -5px 14px rgba(32, 162, 149, 0.3);
 }
 
 .neumorphism-2 {
-  background: #000e0f;
+  box-shadow: inset 2px 2px 1px #000705, inset -2px -2px 1px #000e0f;
+  /* WebKit (Safari, Chrome, Opera) */
+  -webkit-box-shadow: inset 2px 2px 1px #000705, inset -2px -2px 1px #000e0f;
+  /* Firefox */
+  -moz-box-shadow: inset 2px 2px 1px #000705, inset -2px -2px 1px #000e0f;
+  background: #001816;
   color: #fff;
   border: 1px solid #032b24;
 }

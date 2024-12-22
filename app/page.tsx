@@ -240,7 +240,7 @@ export default function Home() {
               shape="circle"
             />
             <p className="font-bold text-lg">시드 분포 및 분석</p>
-            <span className="ml-auto text-sm">
+            <span className="ml-auto text-xs font-light text-neutral-400">
               Averate Rate Year 550 &#8361;
             </span>
           </div>
@@ -276,18 +276,20 @@ export default function Home() {
               shape="circle"
             />
             <p className="font-bold text-lg">환율 대비 인덱스</p>
-            <span className="ml-auto text-sm">
+            <span className="ml-auto text-xs font-light text-neutral-400">
               Averate Rate Year 550 &#8361;
             </span>
           </div>
-          <div className="max-h-[200px] overflow-y-auto">
-            <DataTable value={tableData} tableStyle={{ minWidth: "50rem" }}>
-              <Column field="id" header="처리 인자"></Column>
-              <Column field="name" header="이벤트 이름"></Column>
-              <Column field="price" header="가격"></Column>
-              <Column field="category" header="카테고리"></Column>
-              <Column field="date" header="날짜"></Column>
-            </DataTable>
+
+          <div className="neumorphism-2  p-4 rounded-lg">
+            <div className="flex w-full items-center justify-between">
+              <p>정산 예정 데이터</p>
+              <i className="pi pi-check" style={{ color: "gray" }}></i>
+            </div>
+            <div className="flex w-full items-center justify-between">
+              <strong>0.39%</strong>
+              <strong>0.022 p%</strong>
+            </div>
           </div>
         </div>
       </div>
