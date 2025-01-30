@@ -2,13 +2,15 @@
 // https://blog.naver.com/webdesign_yumeekime
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 //components
 import { Menubar } from "primereact/menubar";
 import { Button } from "primereact/button";
 
 const Header = () => {
   const timeRef = useRef(null);
-
+  const router = useRouter();
+  useRouter;
   useEffect(() => {
     const updateTime = () => {
       const currentTime = new Date();
@@ -32,20 +34,23 @@ const Header = () => {
 
   const items = [
     {
-      label: "Home",
+      label: "메인",
       icon: "pi pi-home",
+      command: () => router.push("/"),
     },
     {
-      label: "Features",
+      label: "관리자",
       icon: "pi pi-star",
+      command: () => router.push("/admin"),
     },
     {
-      label: "Projects",
+      label: "대시보드",
       icon: "pi pi-search",
       items: [
         {
-          label: "Core",
+          label: "매출 통계",
           icon: "pi pi-bolt",
+          command: () => router.push("/dashboard"),
         },
       ],
     },
@@ -59,7 +64,7 @@ const Header = () => {
         width={180} // 이미지 너비 (픽셀 단위)
         height={1} // 이미지 높이 (픽셀 단위)
       />
-      <h1 className="font-bold text-lg">데이터 특화 대시보드</h1>
+      <h1 className="font-bold text-sm">데이터 특화 대시보드</h1>
     </div>
   );
   const end = (

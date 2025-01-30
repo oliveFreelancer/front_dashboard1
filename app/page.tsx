@@ -46,22 +46,22 @@ export default function Home() {
   const treeData = [
     {
       key: "0",
-      label: "Root",
+      label: "2025년도 분석통계",
       children: [
         {
           key: "0-0",
-          label: "Documents",
+          label: "잠재고객 document",
           children: [
-            { key: "0-0-0", label: "Resume.docx" },
-            { key: "0-0-1", label: "CoverLetter.docx" },
+            { key: "0-0-0", label: "income value" },
+            { key: "0-0-1", label: "past average income" },
           ],
         },
         {
           key: "0-1",
-          label: "Pictures",
+          label: "기대고객 document",
           children: [
-            { key: "0-1-0", label: "Vacation.jpg" },
-            { key: "0-1-1", label: "Family.jpg" },
+            { key: "0-1-0", label: "income value" },
+            { key: "0-1-1", label: "past average income" },
           ],
         },
       ],
@@ -126,7 +126,7 @@ export default function Home() {
             <div className="flex gap-3">
               <div className="neumorphism-2 flex-1 p-4 rounded-lg">
                 <div className="flex w-full items-center justify-between">
-                  <p>정산 예정 데이터</p>
+                  <p className="text-xs">정산 예정 데이터</p>
                   <i className="pi pi-check" style={{ color: "gray" }}></i>
                 </div>
                 <div className="flex w-full items-center justify-between">
@@ -136,7 +136,7 @@ export default function Home() {
               </div>
               <div className=" neumorphism-2 flex-1 p-4 rounded-lg">
                 <div className="flex w-full items-center justify-between">
-                  <p>이벤트 등급</p>
+                  <p className="text-xs">이벤트 등급</p>
                   <i className="pi pi-check" style={{ color: "gray" }}></i>
                 </div>
                 <div className="flex w-full items-center justify-between">
@@ -241,11 +241,11 @@ export default function Home() {
             />
             <p className="font-bold text-lg">시드 분포 및 분석</p>
             <span className="ml-auto text-xs font-light text-neutral-400">
-              Averate Rate Year 550 &#8361;
+              Averate Rate Year 1,250 &#8361;
             </span>
           </div>
           <div className="max-h-[200px] overflow-y-auto">
-            <DataTable value={tableData} tableStyle={{ minWidth: "50rem" }}>
+            <DataTable value={tableData} tableStyle={{ fontSize: "12px" }}>
               <Column field="id" header="처리 인자"></Column>
               <Column field="name" header="이벤트 이름"></Column>
               <Column field="price" header="가격"></Column>
@@ -283,7 +283,7 @@ export default function Home() {
 
           <div className="neumorphism-2  p-4 rounded-lg">
             <div className="flex w-full items-center justify-between">
-              <p>정산 예정 데이터</p>
+              <p className="text-xs">정산 예정 데이터</p>
               <i className="pi pi-check" style={{ color: "gray" }}></i>
             </div>
             <div className="flex w-full items-center justify-between">
